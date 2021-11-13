@@ -14,9 +14,9 @@ function Person(props) {
                     props.onRowClick(e.currentTarget.id);
                 }}
         >
-        <PersonField field="name" {...props}/>
-        <PersonField field="email" {...props}/>
-        <PersonField field="phone" {...props}/>
+        <PersonField key={"name" + props.id} field="name" {...props}/>
+        <PersonField key={"email" + props.id} field="email" {...props}/>
+        <PersonField key={"phone" + props.id} field="phone" {...props}/>
     </div>
 }
 export default Person;
