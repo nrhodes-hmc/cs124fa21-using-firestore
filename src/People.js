@@ -4,10 +4,6 @@ import React, { useState } from 'react';
 
 function People(props) {
     const [selectedId, setSelectedId] = useState(null);
-    function selectedIdOwnedByUser() {
-        const person = props.list.find(p=>p.id === selectedId) || {};
-        return props.userId === person.owner;
-    }
     return (
         <div>
             <h1>People ({selectedId === null ? 0 : 1}/{props.list.length} selected)</h1>
@@ -17,7 +13,7 @@ function People(props) {
                 selected={a.id === selectedId}
                 key={a.id}
                 {...a} />)}
-            {selectedId && selectedIdOwnedByUser() && <button type="button" onClick={
+            {selectedId && <button type="button" onClick={
                 () => {
                     props.onDeletePerson(selectedId);
                     setSelectedId(null);

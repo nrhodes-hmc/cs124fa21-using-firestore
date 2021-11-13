@@ -108,13 +108,11 @@ function SignUp() {
     </div>
 }
 
-const collectionName = "People-SharingAllowed"
+const collectionName = "People-AuthenticationRequired"
 
 function SignedInApp(props) {
-    const query = db.collection(collectionName).where("sharedWith", "array-contains", props.user.email);
+    const query = db.collection(collectionName).where('owner', "==", props.user.uid);
     const [value, loading, error] = useCollection(query);
-
-
 
     function handleDeletePerson(personId) {
         db.collection(collectionName).doc(personId).delete().catch((error) => {
@@ -129,8 +127,7 @@ function SignedInApp(props) {
             name: "",
             email: "",
             phone: "",
-            sharedWith: [props.user.email, "foo@bar.com"],
-            owner: props.user.uid
+            //owner: props.user.uid
         }).catch((error) => {
             console.error("Error writing document: ", error);
         })
