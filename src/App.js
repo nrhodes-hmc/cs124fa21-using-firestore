@@ -24,7 +24,7 @@ const db = firebase.firestore();
 
 const collectionName = "People-NoAuthenticationNeeded"
 
-function App(props) {
+function App() {
     const query = db.collection(collectionName);
     const [value, loading, error] = useCollection(query);
 
@@ -72,7 +72,6 @@ function App(props) {
     return <div>
         {loading && <h1>Loading</h1>}
         {people && <People list={people}
-                           userId={props.user.uid}
                            onDeletePerson={handleDeletePerson}
                            onAddPerson={handleAddPerson}
                            onPersonFieldChanged={handlePersonFieldChanged}
