@@ -159,7 +159,6 @@ function SignedInApp(props) {
     return <div>
         {loading && <h1>Loading</h1>}
         {people && <People list={people}
-                           userId={props.user.uid}
                            onDeletePerson={handleDeletePerson}
                            onAddPerson={handleAddPerson}
                            onPersonFieldChanged={handlePersonFieldChanged}
