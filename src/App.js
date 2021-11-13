@@ -108,10 +108,10 @@ function SignUp() {
     </div>
 }
 
-const collectionName = "People-AuthenticationRequired"
+const collectionName = "People-NoAuthenticationNeeded"
 
 function SignedInApp(props) {
-    const query = db.collection(collectionName).where('owner', "==", props.user.uid);
+    const query = db.collection(collectionName);
     const [value, loading, error] = useCollection(query);
 
     function handleDeletePerson(personId) {
@@ -127,7 +127,6 @@ function SignedInApp(props) {
             name: "",
             email: "",
             phone: "",
-            //owner: props.user.uid
         }).catch((error) => {
             console.error("Error writing document: ", error);
         })
