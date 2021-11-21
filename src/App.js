@@ -127,7 +127,7 @@ function SignedInApp(props) {
             name: "",
             email: "",
             phone: "",
-            //owner: props.user.uid
+            owner: props.user.uid
         }).catch((error) => {
             console.error("Error writing document: ", error);
         })
