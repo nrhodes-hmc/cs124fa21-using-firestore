@@ -57,7 +57,7 @@ function App(props) {
     }
 }
 
-const FAKE_EMAIL = 'neil@pobox.com';
+const FAKE_EMAIL = 'foo@bar.com';
 const FAKE_PASSWORD = 'xyzzyxx';
 
 
